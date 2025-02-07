@@ -8,7 +8,6 @@ app = Flask(__name__)
 #Ruta raiz
 
 @app.route('/')
-
 def hola_mundo():
     return "Hola mundo"
 
