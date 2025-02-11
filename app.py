@@ -11,5 +11,9 @@ app = Flask(__name__)
 def hola_mundo():
     return "Hola mundo"
 
+@app.route('/alumnos')
+def hola_mundo():
+    return "Hola Toño, por que tan Guapo"
+
 if __name__=='__main__':
     app.run(debug=True)
