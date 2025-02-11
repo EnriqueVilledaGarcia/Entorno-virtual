@@ -12,7 +12,7 @@ def hola_mundo():
     return "Hola mundo"
 
 @app.route('/alumnos')
-def hola_mundo():
+def get_alumnos():
     return "Hola Toño, por que tan Guapo"
 
 if __name__=='__main__':
