@@ -47,21 +47,26 @@ def index():
 
 @app.route('/alumnos/new', methods= ['GET', 'POST'])
 def create_alumnos():
-    if request.method=='POST':
-        #Aqui se va a retornar algo.
-        no_control = request.form['no_control']
-        nombre = request.form['nombre']
-        ap_paterno = request.form['ap_paterno']
-        ap_materno = request.form['ap_materno']
-        semestre = request.form['semestre']
+    try:
+        if request.method=='POST':
+             #Aqui se va a retornar algo.
+            no_control = request.form['no_control']
+            nombre = request.form['nombre']
+            ap_paterno = request.form['ap_paterno']
+            ap_materno = request.form['ap_materno']
+            semestre = request.form['semestre']
 
-        nvo_alumno = Alumno(no_control=no_control, nombre= nombre, ap_paterno=ap_paterno, ap_materno=ap_materno, semestre=semestre)
+        
+       
+            nvo_alumno = Alumno(no_control=no_control, nombre= nombre, ap_paterno=ap_paterno, ap_materno=ap_materno, semestre=semestre)
 
-        db.session.add(nvo_alumno)
-        db.session.commit()
+            db.session.add(nvo_alumno)
+            db.session.commit()
 
-        return redirect(url_for('index'))
-    return render_template('create_alumno.html')
+            return redirect(url_for('index'))
+        return render_template('create_alumno.html')
+    except:
+        return(redirect(url_for('index')))
 
 #Eliminar un alumno
 
